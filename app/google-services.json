@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "181795962540",
+    "firebase_url": "https://calendario-2aba5.firebaseio.com",
+    "project_id": "calendario-2aba5",
+    "storage_bucket": "calendario-2aba5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181795962540:android:7c7a893e0fcf1957",
+        "android_client_info": {
+          "package_name": "com.wxyz.root.ecolors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181795962540-m128hfp77bqsq8nbus0bnnkaqac9sdq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgjU-U77zsV6NBqSe8DkeMuUHbAF6HJUM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
