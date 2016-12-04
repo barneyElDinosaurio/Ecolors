@@ -16,5 +16,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/texto"
         android:text="Hello World!" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texto"
+        android:layout_alignRight="@+id/texto"
+        android:layout_alignEnd="@+id/texto"
+        android:layout_marginTop="76dp"
+        android:id="@+id/puntaje"
+        tools:text="puntaje" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_pressed"
+        android:layout_toEndOf="@+id/puntaje"
+        android:id="@+id/qr"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:cropToPadding="false"
+        android:layout_below="@+id/puntaje" />
 </RelativeLayout>
