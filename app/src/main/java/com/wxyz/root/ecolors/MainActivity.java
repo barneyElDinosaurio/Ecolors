@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity
         //reference id in Database for every user
         ref = FirebaseDatabase.getInstance().getReference(id);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
@@ -58,12 +57,13 @@ public class MainActivity extends AppCompatActivity
         mTxt.setText(id);
         puntaje = (TextView) findViewById(R.id.puntaje);
 
+        //QR image view
         qr = (ImageView) findViewById(R.id.qr);
         Picasso.with(getApplicationContext()).
                 load("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+id).//load my qr from api.qrserver.com
                 into(qr);//putting image downloaded into my imageView
 
-       
+        //Drawer Layout
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -73,14 +73,14 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        //User data from firebase
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getValue() != null) {//Si el usuario existe y tiene un valor
-                    puntaje.setText(dataSnapshot.getValue().toString());//lea el puntaje q tiene y pongalo en puntaje
-                }else ref.setValue(0);//si no, hagalo q exista y pongale cero en el puntaje
+                    puntaje.setText(dataSnapshot.getValue().toString());//lea el puntaje q tiene y pongalo en el TxtView puntaje
+                }else ref.setValue(0);//si no, haga q exista y pongale cero en el puntaje
 
             }
 
@@ -95,9 +95,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-
-
-
     }
 
     @Override
