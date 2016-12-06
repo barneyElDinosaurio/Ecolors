@@ -7,8 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:id="@+id/pass"
-        android:layout_below="@+id/imageView2"
+        android:id="@+id/spass"
+        android:layout_below="@+id/simageView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -17,13 +17,13 @@
             android:layout_height="wrap_content"
             android:hint="ingrese password"
             android:textAlignment="viewStart"
-            android:id="@+id/passe" />
+            android:id="@+id/spasse" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/correo"
+        android:id="@+id/scorreo"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -32,36 +32,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ingrese su correo"
-            android:id="@+id/correoe"
+            android:id="@+id/scorreoe"
             android:textAlignment="viewStart"
             android:layout_gravity="top" />
     </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:text="ingresar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:id="@+id/ingresar"
-        style="@style/Widget.AppCompat.Button.Colored" />
-
-    <Button
-        android:text="¿No tienes una cuenta?"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ingresar"
-        android:layout_alignLeft="@+id/ingresar"
-        android:layout_alignStart="@+id/ingresar"
-        android:id="@+id/registrar"
-        style="@style/Widget.AppCompat.Button.Borderless" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
-        android:id="@+id/imageView2"
-        android:layout_above="@+id/correo" />
+        android:id="@+id/simageView2"
+        android:layout_above="@+id/scorreo" />
+
+    <Button
+        android:text="registrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sregistrar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_below="@+id/spass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

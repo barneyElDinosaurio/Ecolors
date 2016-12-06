@@ -20,15 +20,13 @@
         android:text="Hello World!" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/texto"
         android:layout_alignRight="@+id/texto"
         android:layout_alignEnd="@+id/texto"
         android:layout_marginTop="76dp"
-        android:id="@+id/puntaje"
-        tools:text="puntaje" />
+        android:id="@+id/puntaje" />
 
     <ImageView
         android:layout_width="match_parent"

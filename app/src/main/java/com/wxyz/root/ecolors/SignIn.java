@@ -2,7 +2,6 @@ package com.wxyz.root.ecolors;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -18,76 +17,47 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by root on 30/11/16.
  */
 
-public class Login extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+
     EditText correo,pass;
-    Button registrar,ingresar;
+    Button registrar;
     FirebaseDatabase db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.sign_in);
 
         FirebaseApp.initializeApp(this);
         db = FirebaseDatabase.getInstance();//No se por q
         mAuth = FirebaseAuth.getInstance();
 
-        correo = (EditText) findViewById(R.id.correoe);
-        pass = (EditText) findViewById(R.id.passe);
 
-        registrar = (Button) findViewById(R.id.registrar);
-        ingresar = (Button) findViewById(R.id.ingresar);
+        correo = (EditText) findViewById(R.id.scorreoe);
+        pass = (EditText) findViewById(R.id.spasse);
 
-
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent i = new Intent(Login.this,MainActivity.class);
-                    startActivity(i);
-                } else {
-                    System.out.println("porfavor registrese");
-                      }
-            }
-        };
+        registrar = (Button) findViewById(R.id.sregistrar);
 
 
+        //Listeners
 
-        //btn registrar pasa a otra actividad
+        //btn registrar
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(Login.this,SignIn.class);
-                startActivity(i);
-
+                signUpUser(correo.getText().toString(),pass.getText().toString());
 
             }
         });
-
-        //btn ingresar
-        ingresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                signInUser(correo.getText().toString(),pass.getText().toString());
-
-            }
-        });
-
-
 
 
     }
@@ -108,8 +78,9 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "No se si aqui falla, creo q si",
                                     Toast.LENGTH_SHORT).show();
                         } else if(mAuth.getCurrentUser() != null){//si no fallo y se registra
-                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            Intent intent = new Intent(SignIn.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
 
                     }
@@ -129,8 +100,9 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Aqui fallo",
                                     Toast.LENGTH_SHORT).show();
                         }else if(mAuth.getCurrentUser() != null){//si no fallo y se loguea
-                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            Intent intent = new Intent(SignIn.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
                 });
